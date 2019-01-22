@@ -1,0 +1,21 @@
+[{
+	"id": 44,
+	"name": "birla",
+	"price": 50,
+	"availableShares": 10000
+}, {
+	"id": 33,
+	"name": "oracle",
+	"availableShares": 9950,
+	"price": 2000
+}, {
+	"id": 22,
+	"name": "twitter",
+	"availableShares": 50001,
+	"price": 1000
+}, {
+	"id": 11,
+	"name": "facebook",
+	"availableShares": 100351,
+	"price": 21000
+}]
