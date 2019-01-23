@@ -26,10 +26,17 @@ namespace OopsPrograms
 
         }
 
+        /// <summary>
+        /// Reads the file.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns>the elements that are in the object</returns>
+        /// <exception cref="Exception"></exception>
         public List<InventoryModel> ReadFile(string fileName)
         {
             try
             {
+                ////StreamReader is  used to read from the file
                 using (StreamReader r = new StreamReader(fileName))
                 {
                     var json = r.ReadToEnd();

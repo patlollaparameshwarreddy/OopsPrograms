@@ -1,21 +1,21 @@
 [{
 	"id": 44,
-	"name": "birla",
-	"price": 50,
-	"availableShares": 10000
+	"shareName": "birla",
+	"numberOfShares": 50,
+	"PriceOfShare": 10000
 }, {
 	"id": 33,
-	"name": "oracle",
-	"availableShares": 9950,
-	"price": 2000
+	"shareName": "oracle",
+	"numberOfShares": 95,
+	"PriceOfShare": 2000
 }, {
 	"id": 22,
-	"name": "twitter",
-	"availableShares": 50001,
-	"price": 1000
+	"shareName": "twitter",
+	"numberOfShares": 52,
+	"PriceOfShare": 1000
 }, {
 	"id": 11,
-	"name": "facebook",
-	"availableShares": 100351,
-	"price": 21000
+	"shareName": "facebook",
+	"numberOfShares": 35,
+	"PriceOfShare": 21000
 }]

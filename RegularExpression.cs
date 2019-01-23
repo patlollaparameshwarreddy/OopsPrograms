@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="RegularExpression.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//----------------------------------------------------------------------
 namespace OopsPrograms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    /// <summary>
+    /// this class is used for replacing the regular expression with the string
+    /// </summary>
     class RegularExpression
     {
+        /// <summary>
+        /// Replacings the regular expression with string.
+        /// </summary>
         public void ReplacingRegularExpressionWithString()
         {
             

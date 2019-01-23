@@ -1,9 +1,20 @@
 ﻿namespace OopsPrograms
 {
+    /// <summary>
+    /// this class is used for defining the constant values
+    /// </summary>
     public class Constants
     {
-        /// file path for inventory details for rice, wheat example
+        /// <summary>
+        /// The path for the json file of inventory products
+        /// </summary>
         public readonly string inventoryForProducts = "inventoryDetails.json";
+
+        /// <summary>
+        /// The path for the json file of stock details
+        /// </summary>
         public readonly string stockDetails = "stock.json";
+        public readonly string inventoryManageMentDetails = "inventoryManagementDetails.json";
+        public readonly string inventoryManageWrite = "invent.json";
     }
 }

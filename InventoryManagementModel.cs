@@ -1,11 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace OopsPrograms
 {
-    public class StockModel
+    class InventoryManagementModel
     {
+        IList<InventoryManagementModel> inventory = new List<InventoryManagementModel>();
+        Constants Constants = new Constants();
+
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
@@ -20,22 +25,22 @@ namespace OopsPrograms
         /// <value>
         /// The name.
         /// </value>
-        public string shareName { get; set; }
+        public string name { get; set; }
 
         /// <summary>
-        /// Gets or sets the available shares.
+        /// Gets or sets the weight.
         /// </summary>
         /// <value>
-        /// The available shares.
+        /// The weight.
         /// </value>
-        public int numberOfShares { get; set; }
+        public double weight { get; set; }
 
         /// <summary>
-        /// Gets or sets the price.
+        /// Gets or sets the price per kg.
         /// </summary>
         /// <value>
-        /// The price.
+        /// The price per kg.
         /// </value>
-        public int PriceOfShare { get; set; }
+        public double pricePerKg { get; set; }
     }
 }
