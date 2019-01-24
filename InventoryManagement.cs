@@ -15,6 +15,7 @@ namespace OopsPrograms
             Console.WriteLine("enter 1 for reading the item in an inventory");
             Console.WriteLine("enter 2 for adding items in to an inventory");
             Console.WriteLine("enter 3 for updating the item in a inventory");
+            Console.WriteLine("enter 4 for deleteing inventory");
             int caseToExecute = Convert.ToInt32(Console.ReadLine());
             switch (caseToExecute)
             {
@@ -27,6 +28,9 @@ namespace OopsPrograms
                     break;
                 case 3:
                    inventoryUtility.UpdateInventoryData();
+                    break;
+                case 4:
+                    inventoryUtility.deleteInventory();
                     break;
 
             }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -136,14 +137,15 @@ namespace OopsPrograms
         public void deleteInventory()
         {
             Constants constants = new Constants();
+            ArrayList arrayList = new ArrayList();
             string data = InventoryUtility.ReadFile(constants.inventoryManageMentDetails);
-            IList<InventoryManagementModel> inventoryDelete = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);
-
+            IList<InventoryManagementModel> inventoryDelete = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);           
+            Console.ReadLine();
             foreach (var items in inventoryDelete)
             {
                 Console.WriteLine(items.id + "\t" + items.name + "\t" + items.weight + "\t" + items.pricePerKg);
             }
-            Console.WriteLine("Enter the Id to update");
+            Console.WriteLine("Enter the Id to delete");
             int id = Convert.ToInt32(Console.ReadLine());
             foreach (var item in inventoryDelete)
             {
@@ -153,6 +155,18 @@ namespace OopsPrograms
                     break;
                 }
             }
+            Console.WriteLine(inventoryDelete);
+            foreach (var item in inventoryDelete)
+            {
+                while (item.id == id)
+                {
+                    inventoryDelete.Remove(item);
+
+                }
+            }
+            var convertedJson = JsonConvert.SerializeObject(inventoryDelete);
+            File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
+            Console.ReadLine();
         }
     }
 }
