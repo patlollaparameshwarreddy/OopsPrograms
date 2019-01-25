@@ -6,6 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.1\customer.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\invent.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\inventoryDetails.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\inventoryManagementDetails.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\OopsPrograms.deps.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\OopsPrograms.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\OopsPrograms.runtimeconfig.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\stock.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\stockFile.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\transactionFile.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.1\OopsPrograms.dll" />
+    <None Include="bin\Debug\netcoreapp2.1\OopsPrograms.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 

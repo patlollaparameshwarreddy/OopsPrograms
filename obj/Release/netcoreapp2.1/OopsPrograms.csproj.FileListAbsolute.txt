@@ -1,0 +1,10 @@
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\bin\Release\netcoreapp2.1\OopsPrograms.deps.json
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\bin\Release\netcoreapp2.1\OopsPrograms.runtimeconfig.json
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\bin\Release\netcoreapp2.1\OopsPrograms.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\bin\Release\netcoreapp2.1\OopsPrograms.dll
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\bin\Release\netcoreapp2.1\OopsPrograms.pdb
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\obj\Release\netcoreapp2.1\OopsPrograms.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\obj\Release\netcoreapp2.1\OopsPrograms.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\obj\Release\netcoreapp2.1\OopsPrograms.AssemblyInfo.cs
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\obj\Release\netcoreapp2.1\OopsPrograms.dll
+C:\Users\Admin\Desktop\fellowship\functional\fellowship\Oops\OopsPrograms\OopsPrograms\obj\Release\netcoreapp2.1\OopsPrograms.pdb

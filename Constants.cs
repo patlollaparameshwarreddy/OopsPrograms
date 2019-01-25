@@ -18,5 +18,8 @@
         public readonly string inventoryManageWrite = "invent.json";
         public readonly int players = 4;
         public readonly int cards = 9;
+        public readonly string customerDetails = "customer.json";
+        public readonly string stockFile = "stockFile.json";
+        public readonly string transactionFile = "transactionFile.json";
     }
 }

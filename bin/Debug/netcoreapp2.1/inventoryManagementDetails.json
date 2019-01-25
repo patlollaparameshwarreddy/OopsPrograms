@@ -1,1 +1,26 @@
-[{"id":1,"name":"rice","weight":20.0,"pricePerKg":100.0},{"id":2,"name":"wheat ","weight":30.0,"pricePerKg":15.0},{"id":3,"name":"pulses","weight":20.0,"pricePerKg":25.0},{"id":4,"name":"white rice","weight":15.0,"pricePerKg":520.0},{"id":5,"name":"brown rice","weight":30.0,"pricePerKg":50.0}]
+[
+  {
+    "id": 2,
+    "name": "wheat ",
+    "weight": 30.0,
+    "pricePerKg": 15.0
+  },
+  {
+    "id": 3,
+    "name": "pulses",
+    "weight": 20.0,
+    "pricePerKg": 25.0
+  },
+  {
+    "id": 4,
+    "name": "white rice",
+    "weight": 15.0,
+    "pricePerKg": 520.0
+  },
+  {
+    "id": 5,
+    "name": "brown rice",
+    "weight": 30.0,
+    "pricePerKg": 50.0
+  }
+]

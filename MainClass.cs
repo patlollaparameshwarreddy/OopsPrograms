@@ -30,6 +30,7 @@ namespace OopsPrograms
                     Console.WriteLine("enter 3 for stock");
                     Console.WriteLine("enter 4 for inventory management");
                     Console.WriteLine("enter 5 for deck of cards");
+                    Console.WriteLine("enter 6 for stock data processing");
                     try
                     {
                         caseCondition = Convert.ToInt32(Console.ReadLine());
@@ -59,6 +60,10 @@ namespace OopsPrograms
                         case 5:
                             DeckOfCards deckOfCards = new DeckOfCards();
                             deckOfCards.Distribution();
+                            break;
+                        case 6:
+                            DataProcessingMainClass dataProcessingMainClass = new DataProcessingMainClass();
+                            dataProcessingMainClass.DataProcesssing();
                             break;
                     }
                     Console.WriteLine("Enter Y to continue OR any key to stop");

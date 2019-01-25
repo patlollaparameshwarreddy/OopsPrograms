@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using System.Linq;
 
 namespace OopsPrograms
 {
@@ -29,6 +29,8 @@ namespace OopsPrograms
         {
             try
             {
+                Console.WriteLine("enter id");
+                int idNo = Convert.ToInt32(Console.ReadLine());
                 Constants constants = new Constants();
                 Console.WriteLine("enter name of the item");
                 string nameOfItem = Console.ReadLine();
@@ -38,6 +40,7 @@ namespace OopsPrograms
                 double pricePerkgOfItem = Convert.ToDouble(Console.ReadLine());
                 InventoryManagementModel managementModel = new InventoryManagementModel()
                 {
+                    id =idNo,
                     name = nameOfItem,
                     weight = weightOfItem,
                     pricePerKg = pricePerkgOfItem
@@ -120,27 +123,13 @@ namespace OopsPrograms
             var convertedJson = JsonConvert.SerializeObject(inventoryDetails);
             File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
         }
-
-        //public void Iteration(IList<InventoryManagementModel> inventoryDetails, InventoryManagementModel property, int value, int id)
-        //{
-        //    foreach (var item in inventoryDetails)
-        //    {
-        //        while (id == item.id)
-        //        {
-        //            item.property = value;
-        //            break;
-        //        }
-        //    }
-
-        //}
-
+       
         public void deleteInventory()
         {
             Constants constants = new Constants();
             ArrayList arrayList = new ArrayList();
             string data = InventoryUtility.ReadFile(constants.inventoryManageMentDetails);
             IList<InventoryManagementModel> inventoryDelete = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);           
-            Console.ReadLine();
             foreach (var items in inventoryDelete)
             {
                 Console.WriteLine(items.id + "\t" + items.name + "\t" + items.weight + "\t" + items.pricePerKg);
@@ -155,15 +144,10 @@ namespace OopsPrograms
                     break;
                 }
             }
-            Console.WriteLine(inventoryDelete);
-            foreach (var item in inventoryDelete)
-            {
-                while (item.id == id)
-                {
-                    inventoryDelete.Remove(item);
-
-                }
-            }
+            //Console.WriteLine(inventoryDelete);
+            var itemToRemove = inventoryDelete.Single(r => r.id == id);
+            inventoryDelete.Remove(itemToRemove);
+            
             var convertedJson = JsonConvert.SerializeObject(inventoryDelete);
             File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
             Console.ReadLine();
