@@ -57,12 +57,8 @@ namespace OopsPrograms
                 foreach (var items in stockModels)
                 {
                     if (items.Id == stockId)
-                    {
-                        Console.WriteLine(items.NumberOfShares);
-                        Console.WriteLine(numberOfShares);
-                        items.NumberOfShares = items.NumberOfShares - numberOfShares;
-                        Console.WriteLine(numberOfShares);
-                        Console.WriteLine(items.NumberOfShares);
+                    {                       
+                        items.NumberOfShares = items.NumberOfShares - numberOfShares;                       
                         priceOfShare = items.PricePerShare;
                         stockName = items.Name;
                         stockFlag = false;
@@ -78,7 +74,7 @@ namespace OopsPrograms
                 {
                     if(item.Id == customerId)
                     {
-                        item.Valuation = item.Valuation + (priceOfShare * numberOfShares);
+                        item.Valuation = item.Valuation - (priceOfShare * numberOfShares);
                         customerName = item.Name;
                         amountValuation = item.Valuation;
                         customerFlag = false;
@@ -107,9 +103,10 @@ namespace OopsPrograms
             IList<TransactionModel> transactionModels = Transaction.GetAllTransactions();
             transactionModels.Add(transactionModel);
             Constants constants = new Constants();
-            Transaction.writeFile(constants.stockFile, stockModels);
-            Transaction.writeFile(constants.customerDetails, customerModels);
-            Transaction.writeFile(constants.transactionFile, transactionModels);
+            Transaction.writeFile(constants.StockFile, stockModels);
+            Transaction.writeFile(constants.CustomerDetails, customerModels);
+            Transaction.writeFile(constants.TransactionFile, transactionModels);
+            Console.WriteLine("purchase sucessfull");
 
         }
 
@@ -159,24 +156,19 @@ namespace OopsPrograms
             string customerName = "";
             string stockName = "";
             int amountValuation = 0;
-            if (numberOfShares >= 0)
+            if (numberOfShares > 0)
             {
                 int priceOfShare = 0;
                 bool stockFlag = true;
                 foreach (var items in stockModels)
                 {
                     if (items.Id == stockId)
-                    {
-                        //Console.WriteLine(items.NumberOfShares);
-                        //Console.WriteLine(numberOfShares);
-                        items.NumberOfShares = items.NumberOfShares + numberOfShares;
-                        //Console.WriteLine(numberOfShares);
-                        //Console.WriteLine(items.NumberOfShares);
+                    {                        
+                        items.NumberOfShares = items.NumberOfShares + numberOfShares;                        
                         priceOfShare = items.PricePerShare * numberOfShares;
                         stockName = items.Name;
                         stockFlag = false;
                     }
-
                 }
                 if (stockFlag == true)
                 {
@@ -187,7 +179,7 @@ namespace OopsPrograms
                 {
                     if (item.Id == customerId)
                     {
-                        item.Valuation = item.Valuation - priceOfShare;
+                        item.Valuation = item.Valuation + priceOfShare;
                         customerName = item.Name;
                         amountValuation = item.Valuation;
                         customerFlag = false;
@@ -211,25 +203,23 @@ namespace OopsPrograms
                 NoOfShares = numberOfShares,
                 Amount = amountValuation,
                 Time = DateTime.Now.ToString(),
-                transactionType = TransactionType.Buy
+                transactionType = TransactionType.Sell
             };
             IList<TransactionModel> transactionModels = Transaction.GetAllTransactions();
             transactionModels.Add(transactionModel);
             Constants constants = new Constants();
-            Transaction.writeFile(constants.stockFile, stockModels);
-            Transaction.writeFile(constants.customerDetails, customerModels);
-            Transaction.writeFile(constants.transactionFile, transactionModels);
+            Transaction.writeFile(constants.StockFile, stockModels);
+            Transaction.writeFile(constants.CustomerDetails, customerModels);
+            Transaction.writeFile(constants.TransactionFile, transactionModels);
+            Console.WriteLine("selling is successfull");
 
         }
 
-
-
-          
         public static IList<TransactionModel> GetAllTransactions()
         {
             Constants constants = new Constants();
             IList<TransactionModel> transactions = new List<TransactionModel>();
-            using (StreamReader stream = new StreamReader(constants.transactionFile))
+            using (StreamReader stream = new StreamReader(constants.TransactionFile))
             {
                 string json = stream.ReadToEnd();
                 stream.Close();

@@ -1,11 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Inventory.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using Newtonsoft.Json;   
+
+    /// <summary>
+    /// this class is used for inventory stock details
+    /// </summary>
     public class Inventory
     {
         /// <summary>
@@ -13,17 +20,17 @@ namespace OopsPrograms
         /// </summary>
         public void PrintData()
         {
-            /// Reads the file which is in json format
+            //// Reads the file which is in json format
             Inventory printsDetailsOfInventory = new Inventory();
+            ////creating the object of constant class
             Constants constants = new Constants();
-            List<InventoryModel> items = printsDetailsOfInventory.ReadFile(constants.inventoryForProducts);
+            List<InventoryModel> items = printsDetailsOfInventory.ReadFile(constants.InventoryForProducts);
             Console.WriteLine("Name\tweight\tRate\tAmount");
-            /// for loop to iterate a data which will received in list format
+            //// for loop to iterate a data which will received in list format
             foreach (var item in items)
             {
                 Console.WriteLine("{0}" + "\t" + "{1}" + " \t" + "{2}" + "\t" + "{3}", item.name, item.weight, item.pricePerKg, item.pricePerKg * item.weight);
             }
-
         }
 
         /// <summary>
@@ -31,7 +38,7 @@ namespace OopsPrograms
         /// </summary>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>the elements that are in the object</returns>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception">file not found</exception>
         public List<InventoryModel> ReadFile(string fileName)
         {
             try
@@ -40,7 +47,7 @@ namespace OopsPrograms
                 using (StreamReader r = new StreamReader(fileName))
                 {
                     var json = r.ReadToEnd();
-                    /// deserialize data because it is in json format
+                    //// deserialize data because it is in json format
                     var items = JsonConvert.DeserializeObject<List<InventoryModel>>(json);
                     return items;
                 }
@@ -49,9 +56,6 @@ namespace OopsPrograms
             {
                 throw new Exception(ex.Message);
             }
-
         }
     }
-
 }
-

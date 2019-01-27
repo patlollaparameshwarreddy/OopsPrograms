@@ -1,30 +1,46 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="InventoryUtility.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    class InventoryUtility
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using Newtonsoft.Json;
+   
+    /// <summary>
+    /// this class is used for managing all the inventory details
+    /// </summary>
+    public class InventoryUtility
     {
+        /// <summary>
+        /// The inventory
+        /// </summary>
         IList<InventoryManagementModel> inventory = new List<InventoryManagementModel>();
+
+        /// <summary>
+        /// Inventories the management data.
+        /// </summary>
         public void InventoryManagementData()
         {
             Console.WriteLine(" diaplaying the items in a inventory management");
             Constants constants = new Constants();
 
-            using (StreamReader streamReader = new StreamReader(constants.inventoryManageMentDetails))
+            using (StreamReader streamReader = new StreamReader(constants.InventoryManageMentDetails))
             {
                 string json = streamReader.ReadToEnd();
-                inventory = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(json);
+                this.inventory = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(json);
             }
-            foreach (var items in inventory)
+
+            foreach (var items in this.inventory)
             {
                 Console.WriteLine(items.name + "\t" + items.weight + "\t" + items.pricePerKg);
             }
         }
+
         public void AddToInventory()
         {
             try
@@ -40,25 +56,27 @@ namespace OopsPrograms
                 double pricePerkgOfItem = Convert.ToDouble(Console.ReadLine());
                 InventoryManagementModel managementModel = new InventoryManagementModel()
                 {
-                    id =idNo,
+                    id = idNo,
                     name = nameOfItem,
                     weight = weightOfItem,
                     pricePerKg = pricePerkgOfItem
                 };
 
-                string data = InventoryUtility.ReadFile(constants.inventoryManageMentDetails);
-                inventory = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);
-                inventory.Add(managementModel);
+                string data = InventoryUtility.ReadFile(constants.InventoryManageMentDetails);
+                this.inventory = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);
+                this.inventory.Add(managementModel);
                 var convertedJson = JsonConvert.SerializeObject(inventory);
-                File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
+                File.WriteAllText(constants.InventoryManageMentDetails, convertedJson);
 
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
         }
+
         public static string ReadFile(string fileName)
         {
             using (StreamReader streamReader = new StreamReader(fileName))
@@ -72,7 +90,7 @@ namespace OopsPrograms
         public void UpdateInventoryData()
         {
             Constants constants = new Constants();
-            string data = InventoryUtility.ReadFile(constants.inventoryManageMentDetails);
+            string data = InventoryUtility.ReadFile(constants.InventoryManageMentDetails);
             IList<InventoryManagementModel> inventoryDetails = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);
 
             foreach (var items in inventoryDetails)
@@ -121,14 +139,13 @@ namespace OopsPrograms
                     break;
             }
             var convertedJson = JsonConvert.SerializeObject(inventoryDetails);
-            File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
+            File.WriteAllText(constants.InventoryManageMentDetails, convertedJson);
         }
        
         public void deleteInventory()
         {
-            Constants constants = new Constants();
-            ArrayList arrayList = new ArrayList();
-            string data = InventoryUtility.ReadFile(constants.inventoryManageMentDetails);
+            Constants constants = new Constants();          
+            string data = InventoryUtility.ReadFile(constants.InventoryManageMentDetails);
             IList<InventoryManagementModel> inventoryDelete = JsonConvert.DeserializeObject<List<InventoryManagementModel>>(data);           
             foreach (var items in inventoryDelete)
             {
@@ -136,21 +153,27 @@ namespace OopsPrograms
             }
             Console.WriteLine("Enter the Id to delete");
             int id = Convert.ToInt32(Console.ReadLine());
+            bool itemExists = true;
             foreach (var item in inventoryDelete)
             {
-                while (id == item.id)
+                if (id == item.id)
                 {
                     Console.WriteLine(item.id + "\t" + item.name + "\t" + item.weight + "\t" + item.pricePerKg);
+                    itemExists = false;
                     break;
                 }
+            }
+            if (itemExists == true)
+            {
+                Console.WriteLine("inventory does not exists");
             }
             //Console.WriteLine(inventoryDelete);
             var itemToRemove = inventoryDelete.Single(r => r.id == id);
             inventoryDelete.Remove(itemToRemove);
             
             var convertedJson = JsonConvert.SerializeObject(inventoryDelete);
-            File.WriteAllText(constants.inventoryManageMentDetails, convertedJson);
-            Console.ReadLine();
+            File.WriteAllText(constants.InventoryManageMentDetails, convertedJson);
+            Console.WriteLine("stock removed");
         }
     }
 }

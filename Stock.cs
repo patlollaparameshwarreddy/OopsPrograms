@@ -22,7 +22,7 @@ namespace OopsPrograms
             ////creating the object of linkedList
             IList<StockModel> stockModels = new List<StockModel>();
             ////the method Stock.ReadFile is called for reading the elements from the stock object
-            stockModels = Stock.ReadFile(constants.stockDetails);
+            stockModels = Stock.ReadFile(constants.StockDetails);
             ////this loop is used for printing the elements in a object
             foreach (var item in stockModels)
             {

@@ -1,4 +1,9 @@
-﻿namespace OopsPrograms
+﻿//-----------------------------------------------------------------------
+// <copyright file="Constants.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace OopsPrograms
 {
     /// <summary>
     /// this class is used for defining the constant values
@@ -6,20 +11,53 @@
     public class Constants
     {
         /// <summary>
-        /// The path for the json file of inventory products
+        /// The path for the file of inventory products
         /// </summary>
-        public readonly string inventoryForProducts = "inventoryDetails.json";
+        public readonly string InventoryForProducts = "inventoryDetails.json";
 
         /// <summary>
-        /// The path for the json file of stock details
+        /// The path for the file of stock details
         /// </summary>
-        public readonly string stockDetails = "stock.json";
-        public readonly string inventoryManageMentDetails = "inventoryManagementDetails.json";
-        public readonly string inventoryManageWrite = "invent.json";
-        public readonly int players = 4;
-        public readonly int cards = 9;
-        public readonly string customerDetails = "customer.json";
-        public readonly string stockFile = "stockFile.json";
-        public readonly string transactionFile = "transactionFile.json";
+        public readonly string StockDetails = "stock.json";
+
+        /// <summary>
+        /// The inventory management details file path
+        /// </summary>
+        public readonly string InventoryManageMentDetails = "inventoryManagementDetails.json";
+
+        /// <summary>
+        /// The inventory write path details
+        /// </summary>
+        public readonly string InventoryManageWrite = "invent.json";
+
+        /// <summary>
+        /// The players
+        /// </summary>
+        public readonly int Players = 4;
+
+        /// <summary>
+        /// The cards
+        /// </summary>
+        public readonly int Cards = 9;
+
+        /// <summary>
+        /// The customer details file path
+        /// </summary>
+        public readonly string CustomerDetails = "customer.json";
+
+        /// <summary>
+        /// The stock file path
+        /// </summary>
+        public readonly string StockFile = "stockFile.json";
+
+        /// <summary>
+        /// The transaction file path
+        /// </summary>
+        public readonly string TransactionFile = "transactionFile.json";
+
+        /// <summary>
+        /// The address book file path
+        /// </summary>
+        public readonly string AddressBook = "AddressBookFile.json";
     }
 }
