@@ -1,23 +1,24 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="InventoryManagementModel.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    class InventoryManagementModel
-    {
-        IList<InventoryManagementModel> inventory = new List<InventoryManagementModel>();
-        Constants Constants = new Constants();
+    using System.Collections.Generic;
 
+    /// <summary>
+    /// this class will be used for creating the class variables
+    /// </summary>
+    public class InventoryManagementModel
+    {             
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
         /// </value>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -25,7 +26,7 @@ namespace OopsPrograms
         /// <value>
         /// The name.
         /// </value>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
@@ -33,7 +34,7 @@ namespace OopsPrograms
         /// <value>
         /// The weight.
         /// </value>
-        public double weight { get; set; }
+        public double Weight { get; set; }
 
         /// <summary>
         /// Gets or sets the price per kg.
@@ -41,6 +42,6 @@ namespace OopsPrograms
         /// <value>
         /// The price per kg.
         /// </value>
-        public double pricePerKg { get; set; }
+        public double PricePerKg { get; set; }
     }
 }

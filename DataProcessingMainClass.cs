@@ -75,7 +75,7 @@ namespace OopsPrograms
                             IList<TransactionModel> valuess = Transaction.GetAllTransactions();
                             foreach (var items in valuess)
                             {
-                                Console.WriteLine(items.CustomerName + "\t" + items.StockName + "\t" + items.transactionType + "\t" + items.NoOfShares + "\t" + items.Amount + "\t" + items.Time);
+                                Console.WriteLine(items.CustomerName + "\t" + items.StockName + "\t" + items.TransactionType + "\t" + items.NoOfShares + "\t" + items.Amount + "\t" + items.Time);
                             }
 
                             break;

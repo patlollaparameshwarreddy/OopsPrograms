@@ -5,10 +5,10 @@
 //-----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    using System;
-    using Newtonsoft.Json;
+    using System;   
     using System.Collections.Generic;
     using System.IO;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// this inter face is used for developing the add customer method
@@ -36,7 +36,7 @@ namespace OopsPrograms
         /// <summary>
         /// The constant object is created
         /// </summary>
-        Constants constants = new Constants();
+        private Constants constants = new Constants();
 
         /// <summary>
         /// Adds the customer.

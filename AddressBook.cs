@@ -1,11 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="AddressBook.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    class AddressBook
+    using System;
+
+    /// <summary>
+    /// this class is used for storing the data of a person
+    /// </summary>
+    public class AddressBook
     {
+        /// <summary>
+        /// Addresses the book details.
+        /// </summary>
+        /// <exception cref="Exception">casting exception</exception>
         public void AddressBookDetails()
         {           
             try
@@ -21,13 +31,23 @@ namespace OopsPrograms
                     Console.WriteLine("enter 5 for sort by zip");
                     Console.WriteLine("enter 6 for print address book ");
                     caseCondition = Convert.ToInt32(Console.ReadLine());
+                    AddressUtility addressUtility = new AddressUtility();
                     switch (caseCondition)
                     {
-                        case 1:
-                            AddressUtility addressUtility = new AddressUtility();
+                        case 1:                           
                             addressUtility.AddPerson();
                             break;
+                        case 2:
+                            addressUtility.Update();
+                            break;
+                        case 6:
+                            addressUtility.PrintAddressBook();
+                            break;
+                        case 3:
+                            addressUtility.DeleteData();
+                            break;
                     }
+
                     Console.WriteLine("enter y to continue");
                     doCondition = Console.ReadLine();
                 }
@@ -38,7 +58,5 @@ namespace OopsPrograms
                 throw new Exception(e.Message);
             }
         }
-
-
     }
 }

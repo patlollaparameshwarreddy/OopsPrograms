@@ -5,16 +5,19 @@
 //----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// this class is used for taking the details of the stock and its shares
     /// </summary>
-    class Stock
+    public class Stock
     {
+        /// <summary>
+        /// Creates the stock.
+        /// </summary>
         public void CreateStock()
         {
             ////creating the object of constants class
@@ -26,9 +29,8 @@ namespace OopsPrograms
             ////this loop is used for printing the elements in a object
             foreach (var item in stockModels)
             {
-                Console.WriteLine("{0}"+"\t" +"{1}" +"\t" + "{2}"+" ",item.shareName, item.PriceOfShare, item.numberOfShares    );
+                Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + " ", item.ShareName, item.PriceOfShare, item.NumberOfShares);
             }
-
         }
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace OopsPrograms
         /// </summary>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>returns the elements in a stock object </returns>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"> file not found exception</exception>
         public static IList<StockModel> ReadFile(string fileName)
         {
             try
@@ -44,7 +46,7 @@ namespace OopsPrograms
                 using (StreamReader r = new StreamReader(fileName))
                 {
                     var json = r.ReadToEnd();
-                    /// deserialize data because it is in json format
+                    ////deserialize data because it is in json format
                     var items = JsonConvert.DeserializeObject<List<StockModel>>(json);
                     return items;
                 }
@@ -53,11 +55,6 @@ namespace OopsPrograms
             {
                 throw new Exception(ex.Message);
             }
-
         }
-
     }
 }
-
-
-

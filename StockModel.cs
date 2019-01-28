@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="StockModel.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms
 {
+    /// <summary>
+    /// this class is used for declaring the getters and setters
+    /// </summary>
     public class StockModel
     {
         /// <summary>
@@ -12,7 +16,7 @@ namespace OopsPrograms
         /// <value>
         /// The identifier.
         /// </value>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -20,7 +24,7 @@ namespace OopsPrograms
         /// <value>
         /// The name.
         /// </value>
-        public string shareName { get; set; }
+        public string ShareName { get; set; }
 
         /// <summary>
         /// Gets or sets the available shares.
@@ -28,7 +32,7 @@ namespace OopsPrograms
         /// <value>
         /// The available shares.
         /// </value>
-        public int numberOfShares { get; set; }
+        public int NumberOfShares { get; set; }
 
         /// <summary>
         /// Gets or sets the price.

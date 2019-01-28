@@ -9,19 +9,27 @@ namespace OopsPrograms
     using System.Collections.Generic;
     using System.Text;
     using System.Text.RegularExpressions;
+
     /// <summary>
     /// this class is used for replacing the regular expression with the string
     /// </summary>
-    class RegularExpression
+    public class RegularExpression
     {
         /// <summary>
-        /// Replacings the regular expression with string.
+        /// Replace the regular expression with string.
         /// </summary>
         public void ReplacingRegularExpressionWithString()
         {
-            Declaration();
+            this.Declaration();
         }
 
+        /// <summary>
+        /// Replaces the words.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="mobileNo">The mobile no.</param>
+        /// <param name="date">The date.</param>
         public void ReplaceWords(string firstName, string lastName, string mobileNo, string date)
         {
             ////The sentence in which we have to make changes
@@ -29,20 +37,20 @@ namespace OopsPrograms
             ////pattern for change inside the string
             string patternForName = "<<name>>";
             ////using showmatch static method of regularexexpression class to replace the pattern with valid data
-            message = RegularExpression.showMatch(message, firstName, patternForName);
+            message = RegularExpression.ShowMatch(message, firstName, patternForName);
             ////Pattern for changing full name from the sentence       
             string patternForfame = "<<full name>>";
             ////using showmatch static method of regularexexpression class to replace the pattern with valid data
-            message = RegularExpression.showMatch(message, firstName + " " + lastName, patternForfame);
+            message = RegularExpression.ShowMatch(message, firstName + " " + lastName, patternForfame);
             ////Pattern for changing mobile number from the sentence   
             string contactNumber = "<<91-xxxxxxxxx>>";
             ////using showmatch static method of regularexexpression class to replace the pattern with valid data
-            message = RegularExpression.showMatch(message, "91" + " " + mobileNo, contactNumber);
+            message = RegularExpression.ShowMatch(message, "91" + " " + mobileNo, contactNumber);
             ////Pattern for changing Currrent date from the sentence   
-            string Currentdate = "<<dd/mm/yyyy>>";
+            string currentdate = "<<dd/mm/yyyy>>";
             DateTime today = DateTime.Today;
             ////using showmatch static method of regularexexpression class to replace the pattern with valid data
-            message = RegularExpression.showMatch(message, today.ToString(), Currentdate);
+            message = RegularExpression.ShowMatch(message, today.ToString(), currentdate);
 
             Console.WriteLine(message);
         }
@@ -51,10 +59,10 @@ namespace OopsPrograms
         /// Shows the match.
         /// </summary>
         /// <param name="text">The text.</param>
-        /// <param name="expr">The expr.</param>
+        /// <param name="expr">The expression.</param>
         /// <param name="pattern">The pattern.</param>
-        /// <returns>string</returns>
-        public static string showMatch(string text, string expr, string pattern)
+        /// <returns> returns string</returns>
+        public static string ShowMatch(string text, string expr, string pattern)
         {
             ////creating regex class object for passing pattern
             Regex rgx = new Regex(pattern);
@@ -62,6 +70,9 @@ namespace OopsPrograms
             return newString;
         }
 
+        /// <summary>
+        /// Declarations this instance.
+        /// </summary>
         public void Declaration()
         {
             ////Taking user input for first name
@@ -79,17 +90,12 @@ namespace OopsPrograms
             string date = thisDay.ToString("d");
             if (Regex.IsMatch(mobileNo, @"[0-9]{10}") && Regex.IsMatch(firstName, @"[a-zA-Z]") && Regex.IsMatch(lastName, @"[a-zA-Z]"))
             {
-                ReplaceWords(firstName, lastName, mobileNo, date);
+                this.ReplaceWords(firstName, lastName, mobileNo, date);
             }
             else
             {
                 Console.WriteLine("enter valid data");
-            }
-            
-            
+            }                       
         }
-
     }
 }
-
-

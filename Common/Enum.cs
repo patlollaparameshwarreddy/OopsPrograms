@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="TransactionType.cs" company="CompanyName">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace OopsPrograms.Common
 {
+    /// <summary>
+    /// this class is used for declaring the elements
+    /// </summary>
     public enum TransactionType
     {
-            Buy = 0,
-            Sell = 1
-    }
+        /// <summary>
+        /// The buy
+        /// </summary>
+        Buy = 0,
 
-    public enum Day
-    {
-        Monday = 0,
-        Tuesday = 1,
-        Wednesday = 2,
-        Thursday = 3,
-        Friday = 4,
-        Saturday = 5
-    }
+        /// <summary>
+        /// The sell
+        /// </summary>
+        Sell = 1
+    }    
 }

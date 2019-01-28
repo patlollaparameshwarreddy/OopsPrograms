@@ -38,14 +38,17 @@ namespace OopsPrograms
                 }
             }
 
+            int player = 1;
             ////this nested for loop is used for distribution of cards for players
             for (int i = 0; i < constants.Players; i++)
-            {
+            {               
+                Console.WriteLine("player " + player + " cards");
                 for (int j = 0; j < 9; j++)
                 {
                     Console.Write(playerCards[i, j] + "\t");
                 }
 
+                player++;
                 Console.WriteLine();
             }
         }              

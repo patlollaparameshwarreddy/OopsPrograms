@@ -5,19 +5,18 @@
 //----------------------------------------------------------------------
 namespace OopsPrograms
 {
-    using Newtonsoft.Json;
     using System;
 
     /// <summary>
     /// this class is used to for creating the objects for all the classes
     /// </summary>
-    class MainClass
+    public class MainClass
     {
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
         /// <param name="args">The arguments.</param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string condition = null;
             int caseCondition = 0;
@@ -40,6 +39,7 @@ namespace OopsPrograms
                     {
                         Console.WriteLine("enter proper condition");
                     }
+
                     switch (caseCondition)
                     {
                         case 1:
@@ -71,6 +71,7 @@ namespace OopsPrograms
                             addressBook.AddressBookDetails();
                             break;
                     }
+
                     Console.WriteLine("Enter Y to continue OR any key to stop");
 
                     condition = Console.ReadLine();
@@ -81,9 +82,7 @@ namespace OopsPrograms
             {
                 Console.WriteLine(e.Message);
                 Console.ReadLine();
-            }
-            
+            }            
         }
     }
-
 }

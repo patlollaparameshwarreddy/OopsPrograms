@@ -29,7 +29,7 @@ namespace OopsPrograms
             //// for loop to iterate a data which will received in list format
             foreach (var item in items)
             {
-                Console.WriteLine("{0}" + "\t" + "{1}" + " \t" + "{2}" + "\t" + "{3}", item.name, item.weight, item.pricePerKg, item.pricePerKg * item.weight);
+                Console.WriteLine("{0}" + "\t" + "{1}" + " \t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.PricePerKg, item.PricePerKg * item.Weight);
             }
         }
 

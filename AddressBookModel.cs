@@ -99,6 +99,6 @@ namespace OopsPrograms
         /// <value>
         /// The phone number.
         /// </value>
-        public string PhoneNuumber { get => this.phoneNumber; set => this.phoneNumber = value; }
+        public string PhoneNumber { get => this.phoneNumber; set => this.phoneNumber = value; }
     }
 }

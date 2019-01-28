@@ -37,7 +37,7 @@ namespace OopsPrograms
                    inventoryUtility.UpdateInventoryData();
                     break;
                 case 4:
-                    inventoryUtility.deleteInventory();
+                    inventoryUtility.DeleteInventory();
                     break;
             }
         }
