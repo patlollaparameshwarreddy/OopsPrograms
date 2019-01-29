@@ -40,6 +40,7 @@ namespace OopsPrograms
                 string zip = Console.ReadLine();
                 Console.WriteLine("enter phone number");
                 string phoneNumber = Console.ReadLine();
+                ////this condition is used for checking the valid data
                 if (Regex.IsMatch(phoneNumber, @"[0-9]{10}") && Regex.IsMatch(zip, @"[0-9]{6}") && Regex.IsMatch(firstname, @"[a-zA-Z]") && Regex.IsMatch(lastname, @"[a-zA-Z]") && Regex.IsMatch(city, @"[a-zA-Z]") && Regex.IsMatch(state, @"[a-zA-Z]"))
                 {
                     AddressBookModel addressBookModel = new AddressBookModel()
@@ -52,6 +53,7 @@ namespace OopsPrograms
                         ZipCode = zip,
                         PhoneNumber = phoneNumber
                     };
+                    ////this will read the file
                     string file = AddressUtility.ReadFile(constants.AddressBook);
                     addressBook = JsonConvert.DeserializeObject<List<AddressBookModel>>(file);
                     addressBook.Add(addressBookModel);
@@ -92,7 +94,7 @@ namespace OopsPrograms
         {
             try
             {
-                Console.WriteLine("enter your phone number to update");
+                Console.WriteLine("enter your registered phone number to update");
                 string phoneNumber = Console.ReadLine();
                 Constants constants = new Constants();
                 IList<AddressBookModel> addressBookModel = new List<AddressBookModel>();
@@ -101,6 +103,7 @@ namespace OopsPrograms
                 bool number = true;
                 foreach (var items in addressBookModel)
                 {
+                    ////this condition is for checking whether the customer existis or not
                     if (items.PhoneNumber == phoneNumber)
                     {
                         Console.WriteLine(items.FirstName + "\n" + items.LastName + "\n" + items.Address + "\n" + items.City + "\n" + items.State + "\n" + items.ZipCode + "\n" + items.PhoneNumber);
@@ -116,6 +119,7 @@ namespace OopsPrograms
                             switch (switchCase)
                             {
                                 case 1:
+                                    ////these case is used for changing the phone number
                                     Console.WriteLine("enter new number");
                                     string newPhoneNumber = Console.ReadLine();
                                     if (Regex.IsMatch(phoneNumber, @"[0-9]{10}"))
@@ -129,11 +133,13 @@ namespace OopsPrograms
 
                                     break;
                                 case 2:
+                                    ////this case is used for changing the address
                                     Console.WriteLine("enter new address");
                                     string newAddress = Console.ReadLine();
                                     items.Address = Console.ReadLine();
                                     break;
                                 case 3:
+                                    ////this case is used for changing the state
                                     Console.WriteLine("enter new state");
                                     string newState = Console.ReadLine();
                                     if (Regex.IsMatch(newState, @"[a-zA-Z]"))
@@ -144,9 +150,11 @@ namespace OopsPrograms
                                     {
                                         Console.WriteLine("invalid data");
                                     }
+
                                     break;
 
                                 case 4:
+                                    ////this case is used for changing the city
                                     Console.WriteLine("enter new city");
                                     string newCity = Console.ReadLine();
                                     if (Regex.IsMatch(newCity, @"[a-zA-Z]"))
@@ -160,10 +168,12 @@ namespace OopsPrograms
 
                                     break;
                             }
-                            Console.WriteLine("enter y to continue");
+
+                            Console.WriteLine("enter y to continue or enter any key to stop");
                             doCondition = Console.ReadLine();
                         }
                         while (doCondition.Equals("y"));
+                        ////Serializeing the object
                         var convertedJson = JsonConvert.SerializeObject(addressBookModel);
                         File.WriteAllText(constants.AddressBook, convertedJson);
                         Console.WriteLine("update successful");
@@ -179,7 +189,6 @@ namespace OopsPrograms
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
         /// <summary>
@@ -189,10 +198,12 @@ namespace OopsPrograms
         {
             Constants constants = new Constants();
             IList<AddressBookModel> addressBook = new List<AddressBookModel>();
+            ////this is used for reading the file
             using (StreamReader stream = new StreamReader(constants.AddressBook))
             {
                 string data = stream.ReadToEnd();
                 stream.Close();
+                ////Deserializeing the file to object
                 addressBook = JsonConvert.DeserializeObject<List<AddressBookModel>>(data);
                 foreach (var items in addressBook)
                 {
@@ -209,13 +220,17 @@ namespace OopsPrograms
         {
             Console.WriteLine("enter your phone number to update");
             string phoneNumber = Console.ReadLine();
+            ////creating the object of constants class
             Constants constants = new Constants();
             IList<AddressBookModel> addressBookModel = new List<AddressBookModel>();
+            ////reading the file
             string json = AddressUtility.ReadFile(constants.AddressBook);
+            ////deserializeing the file
             addressBookModel = JsonConvert.DeserializeObject<List<AddressBookModel>>(json);
             bool number = true;
             foreach (var items in addressBookModel)
             {
+                ////this condition is for checking whether the customer existis or not
                 if (items.PhoneNumber == phoneNumber)
                 {
                     Console.WriteLine(items.FirstName + "\n" + items.LastName + "\n" + items.Address + "\n" + items.City + "\n" + items.State + "\n" + items.ZipCode + "\n" + items.PhoneNumber);
@@ -235,6 +250,48 @@ namespace OopsPrograms
             ////writing in to the file
             File.WriteAllText(constants.AddressBook, convertedJson);
             Console.WriteLine("your record deleted");
+        }
+
+        /// <summary>
+        /// Sorts the last name of the by.
+        /// </summary>
+        public void SortByLastName()
+        {
+            ////creating the object of constants class
+            Constants constants = new Constants();
+            ////reading the file date
+            string json = AddressUtility.ReadFile(constants.AddressBook);
+            IList<AddressBookModel> addressBookModel = new List<AddressBookModel>();
+            ////Deserializeing the file to string
+            addressBookModel = JsonConvert.DeserializeObject<List<AddressBookModel>>(json);
+            ////OrderBy is used keeping the data in assending order
+            var assendingOrder = addressBookModel.OrderBy(x => x.LastName);
+            ////Serializeing the object to string 
+            var orderedByLastName = JsonConvert.SerializeObject(assendingOrder);
+            ////writing into the file
+            File.WriteAllText(constants.AddressBook, orderedByLastName);
+            Console.WriteLine("ordered by last name");
+        }
+
+        /// <summary>
+        /// Sorts the by zip.
+        /// </summary>
+        public void SortByZip()
+        {
+            ////creating the object of constants class
+            Constants constants = new Constants();
+            ////reading the file date
+            string json = AddressUtility.ReadFile(constants.AddressBook);
+            IList<AddressBookModel> addressBookModel = new List<AddressBookModel>();
+            ////Deserializeing the file to string
+            addressBookModel = JsonConvert.DeserializeObject<List<AddressBookModel>>(json);
+            ////OrderBy is used keeping the data in assending order
+            var assendingOrder = addressBookModel.OrderBy(x => x.ZipCode);
+            ////Serializeing the object to string 
+            var orderedByLastName = JsonConvert.SerializeObject(assendingOrder);
+            ////writing into the file
+            File.WriteAllText(constants.AddressBook, orderedByLastName);
+            Console.WriteLine("ordered by zip code");
         }
     }
 }

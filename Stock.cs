@@ -29,7 +29,7 @@ namespace OopsPrograms
             ////this loop is used for printing the elements in a object
             foreach (var item in stockModels)
             {
-                Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + " ", item.ShareName, item.PriceOfShare, item.NumberOfShares);
+                Console.WriteLine(item.Id + "\t" + item.ShareName + "\t" + item.NumberOfShares + "\t" + item.PriceOfShare + "\t" + item.PriceOfShare * item.NumberOfShares);
             }
         }
 
@@ -43,9 +43,10 @@ namespace OopsPrograms
         {
             try
             {
-                using (StreamReader r = new StreamReader(fileName))
+                using (StreamReader stream = new StreamReader(fileName))
                 {
-                    var json = r.ReadToEnd();
+                    var json = stream.ReadToEnd();
+                    stream.Close();
                     ////deserialize data because it is in json format
                     var items = JsonConvert.DeserializeObject<List<StockModel>>(json);
                     return items;

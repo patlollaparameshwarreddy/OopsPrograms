@@ -27,10 +27,11 @@ namespace OopsPrograms
             switch (caseToExecute)
             {
                 case 1:
-                    
+                    ////this case is used for manage data
                     inventoryUtility.InventoryManagementData();
                     break;
                 case 2:
+                    ////this case is used for a
                     inventoryUtility.AddToInventory();
                     break;
                 case 3:

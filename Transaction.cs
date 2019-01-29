@@ -161,9 +161,11 @@ namespace OopsPrograms
         /// </exception>
         public void SellStock()
         {
+            ////creating the object of customer class
             CustomerData customer = new CustomerData();
             IList<CustomerModel> customerModels = customer.GetAllCustomer();
             Console.WriteLine("id \t name \t valuation");
+            ////this is used for reading the data in customerModels
             foreach (var items in customerModels)
             {
                 Console.WriteLine(items.Id + "\t" + items.Name + "\t" + items.Valuation);
@@ -171,6 +173,7 @@ namespace OopsPrograms
 
             Console.WriteLine("Please enter the selling customer id");
             int customerId = Convert.ToInt32(Console.ReadLine());
+            ////creating the object of stock data
             StockData stockData = new StockData();
             IList<StockDataModel> stockModels = stockData.GetStock();
             Console.WriteLine("id \tname \tnumberofshares \tpricepershare");
@@ -212,6 +215,7 @@ namespace OopsPrograms
                 ////this loop is used for searching the entered id 
                 foreach (var items in stockModels)
                 {
+                    ////this condition is used for checkint the data present in the stock
                     if (items.Id == stockId)
                     {                        
                         items.NumberOfShares = items.NumberOfShares + numberOfShares;                        
@@ -229,6 +233,7 @@ namespace OopsPrograms
                 bool customerFlag = true;
                 foreach (var item in customerModels)
                 {
+                    ////this condition is used for 
                     if (item.Id == customerId)
                     {
                         item.Valuation = item.Valuation + priceOfShare;

@@ -44,9 +44,10 @@ namespace OopsPrograms
             try
             {
                 ////StreamReader is  used to read from the file
-                using (StreamReader r = new StreamReader(fileName))
+                using (StreamReader stream = new StreamReader(fileName))
                 {
-                    var json = r.ReadToEnd();
+                    var json = stream.ReadToEnd();
+                    stream.Close();
                     //// deserialize data because it is in json format
                     var items = JsonConvert.DeserializeObject<List<InventoryModel>>(json);
                     return items;

@@ -38,22 +38,27 @@ namespace OopsPrograms
                     switch (caseCondition)
                     {
                         case 1:
+                            ////this case is used for adding customer
                             CustomerData customerData = new CustomerData();
                             customerData.AddCustomer();
                             break;
                         case 2:
+                            ////this case is used for adding the stock
                             StockData stockData = new StockData();
                             stockData.AddStock();
                             break;
                         case 3:
+                            ////this case is used for buying the stock
                             Transaction transaction = new Transaction();
                             transaction.BuyStock();
                             break;
                         case 4:
+                            ////this case is used for selling the stock
                             Transaction transaction1 = new Transaction();
                             transaction1.SellStock();
                             break;
                         case 5:
+                            ////this case is used for getting the all customer data
                             CustomerData customerData1 = new CustomerData();
                             IList<CustomerModel> values = customerData1.GetAllCustomer();
                             foreach (var items in values)
@@ -63,6 +68,7 @@ namespace OopsPrograms
 
                             break;
                         case 6:
+                            ////this case is used for getting all the records
                             StockData stockData1 = new StockData();
                             IList<StockDataModel> stock = stockData1.GetStock();
                             foreach (var items in stock)
@@ -72,6 +78,7 @@ namespace OopsPrograms
 
                             break;
                         case 7:
+                            ////this case is used for getting all the Transactions
                             IList<TransactionModel> valuess = Transaction.GetAllTransactions();
                             foreach (var items in valuess)
                             {
@@ -80,6 +87,7 @@ namespace OopsPrograms
 
                             break;
                         case 8:
+                            ////this case is used for removing the stock
                             RemovingStock removingStock = new RemovingStock();
                             removingStock.RemoveStock();
                             break;
