@@ -31,6 +31,7 @@ namespace OopsPrograms
                     Console.WriteLine("enter 5 for deck of cards");
                     Console.WriteLine("enter 6 for stock data processing");
                     Console.WriteLine("enter 7 for address book");
+                    Console.WriteLine("enter 8 for deck of cards in queue");
                     try
                     {
                         caseCondition = Convert.ToInt32(Console.ReadLine());
@@ -69,6 +70,10 @@ namespace OopsPrograms
                         case 7:
                             AddressBook addressBook = new AddressBook();
                             addressBook.AddressBookDetails();
+                            break;
+                        case 8:
+                            CardQueue cardQueue = new CardQueue();
+                            cardQueue.CardInQueue();
                             break;
                     }
 

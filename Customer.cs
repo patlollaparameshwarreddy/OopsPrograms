@@ -52,30 +52,37 @@ namespace OopsPrograms
                 string name = Console.ReadLine();
                 Console.WriteLine("enter valuation");
                 int valuation = Convert.ToInt32(Console.ReadLine());
-                ////creating the object of the customer model class
-                CustomerModel customerModel = new CustomerModel();
+                if (valuation > 0)
                 {
-                    customerModel.Id = id;
-                    customerModel.Name = name;
-                    customerModel.Valuation = valuation;
+                    ////creating the object of the customer model class
+                    CustomerModel customerModel = new CustomerModel();
+                    {
+                        customerModel.Id = id;
+                        customerModel.Name = name;
+                        customerModel.Valuation = valuation;
+                    }
+                    ////creating new ilist
+                    IList<CustomerModel> customers = new List<CustomerModel>();
+                    ////this is used for reading the file
+                    using (StreamReader stream = new StreamReader(this.constants.CustomerDetails))
+                    {
+                        ////reading the hole content in the file
+                        string json = stream.ReadToEnd();
+                        ////closing the file
+                        stream.Close();
+                        ////Deserialize the customet model file
+                        customers = JsonConvert.DeserializeObject<List<CustomerModel>>(json);
+                        customers.Add(customerModel);
+                        ////Serialize the customer model object
+                        var convertedJson = JsonConvert.SerializeObject(customers);
+                        ////writing all the text in to a file
+                        File.WriteAllText(this.constants.CustomerDetails, convertedJson);
+                        Console.WriteLine("new customer added");
+                    }
                 }
-                ////creating new ilist
-                IList<CustomerModel> customers = new List<CustomerModel>();
-                ////this is used for reading the file
-                using (StreamReader stream = new StreamReader(this.constants.CustomerDetails))
+                else
                 {
-                    ////reading the hole content in the file
-                    string json = stream.ReadToEnd();
-                    ////closing the file
-                    stream.Close();
-                    ////Deserialize the customet model file
-                    customers = JsonConvert.DeserializeObject<List<CustomerModel>>(json);
-                    customers.Add(customerModel);
-                    ////Serialize the customer model object
-                    var convertedJson = JsonConvert.SerializeObject(customers);
-                    ////writing all the text in to a file
-                    File.WriteAllText(this.constants.CustomerDetails, convertedJson);
-                    Console.WriteLine("new customer added");
+                    Console.WriteLine("enter valid data");
                 }
             }
             catch (Exception e)

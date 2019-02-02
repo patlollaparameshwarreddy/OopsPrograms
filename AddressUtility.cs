@@ -41,7 +41,7 @@ namespace OopsPrograms
                 Console.WriteLine("enter phone number");
                 string phoneNumber = Console.ReadLine();
                 ////this condition is used for checking the valid data
-                if (Regex.IsMatch(phoneNumber, @"[0-9]{10}") && Regex.IsMatch(zip, @"[0-9]{6}") && Regex.IsMatch(firstname, @"[a-zA-Z]") && Regex.IsMatch(lastname, @"[a-zA-Z]") && Regex.IsMatch(city, @"[a-zA-Z]") && Regex.IsMatch(state, @"[a-zA-Z]"))
+                if (Regex.IsMatch(phoneNumber, @"[0-9]{10}") && Regex.IsMatch(zip, @"[0-9]{6}") && Regex.IsMatch(firstname, @"[a-zA-Z]") && Regex.IsMatch(lastname, @"[a-zA-Z]") && Regex.IsMatch(city, @"[a-zA-Z]") && Regex.IsMatch(state, @"[a-zA-Z]") && Regex.IsMatch(address, @"[a-zA-Z0-9[-]"))
                 {
                     AddressBookModel addressBookModel = new AddressBookModel()
                     {
@@ -94,6 +94,7 @@ namespace OopsPrograms
         {
             try
             {
+                PrintAddressBook();
                 Console.WriteLine("enter your registered phone number to update");
                 string phoneNumber = Console.ReadLine();
                 Constants constants = new Constants();
@@ -169,7 +170,7 @@ namespace OopsPrograms
                                     break;
                             }
 
-                            Console.WriteLine("enter y to continue or enter any key to stop");
+                            Console.WriteLine("enter y to continue update or enter any key to stop update");
                             doCondition = Console.ReadLine();
                         }
                         while (doCondition.Equals("y"));
@@ -207,7 +208,7 @@ namespace OopsPrograms
                 addressBook = JsonConvert.DeserializeObject<List<AddressBookModel>>(data);
                 foreach (var items in addressBook)
                 {
-                    Console.WriteLine(items.FirstName + "\n" + items.LastName + "\n" + items.Address + "\n" + items.City + "\n" + items.State + "\n" + items.ZipCode + "\n" + items.PhoneNumber);
+                    Console.WriteLine(items.FirstName + "\t" + items.LastName + "\t" + items.Address + "\t" + items.City + "\t" + items.State + "\t" + items.ZipCode + "\t" + items.PhoneNumber);
                     Console.WriteLine();
                 }
             }
