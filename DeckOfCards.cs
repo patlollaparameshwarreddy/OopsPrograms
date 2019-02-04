@@ -24,6 +24,7 @@ namespace OopsPrograms
             Console.WriteLine();
             int x = 0;
             int y = 0;
+            ////this nested loop is uesed for printing the cards with the players
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -42,5 +43,3 @@ namespace OopsPrograms
         }
     }
 }
-
-

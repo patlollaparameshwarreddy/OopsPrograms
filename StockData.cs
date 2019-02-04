@@ -18,7 +18,7 @@ namespace OopsPrograms
         /// <summary>
         /// The constants object
         /// </summary>
-        Constants constants = new Constants();
+        private Constants constants = new Constants();
 
         /// <summary>
         /// Adds the stock.

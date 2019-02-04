@@ -83,6 +83,6 @@ namespace OopsPrograms
         /// <value>
         /// The type of the transaction.
         /// </value>
-        public TransactionType TransactionType{ get; set; }        
+        public TransactionType TransactionType { get; set; }        
     }
 }

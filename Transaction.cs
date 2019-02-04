@@ -6,6 +6,7 @@
 namespace OopsPrograms
 {    
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using Newtonsoft.Json;
@@ -17,6 +18,16 @@ namespace OopsPrograms
     public class Transaction
     {
         /// <summary>
+        /// The price of share
+        /// </summary>
+        private int priceOfShare = 0;
+
+        /// <summary>
+        /// The data in queue
+        /// </summary>
+        private Queue<string> dataInqueue = new Queue<string>();
+
+        /// <summary>
         /// Buys the stock.
         /// </summary>
         /// <exception cref="Exception">
@@ -25,6 +36,7 @@ namespace OopsPrograms
         /// </exception>
         public void BuyStock()
         {
+            int priceOfShare = 0;
             ////creating the object of customer class
             CustomerData customer = new CustomerData();
             ////creating new list
@@ -77,7 +89,7 @@ namespace OopsPrograms
             ////this condition is used for checking whether user entered the valid number of shares
             if (numberOfShares < stockDataModel.NumberOfShares || numberOfShares <= 0)
             {
-                int priceOfShare = 0;
+                ////int priceOfShare = 0;
                 bool stockFlag = true;
                 ////this loop is used for searching for the given stock id
                 foreach (var items in stockModels)
@@ -127,7 +139,7 @@ namespace OopsPrograms
                 CustomerName = customerName,
                 StockName = stockName,
                 NoOfShares = numberOfShares,
-                Amount = amountValuation,
+                Amount = priceOfShare * numberOfShares,
                 Time = DateTime.Now.ToString(),
                 TransactionType = TransactionType.Buy
             };
@@ -210,7 +222,7 @@ namespace OopsPrograms
             int amountValuation = 0;
             if (numberOfShares > 0)
             {
-                int priceOfShare = 0;
+                ////int priceOfShare = 0;
                 bool stockFlag = true;
                 ////this loop is used for searching the entered id 
                 foreach (var items in stockModels)
@@ -219,7 +231,7 @@ namespace OopsPrograms
                     if (items.Id == stockId)
                     {                        
                         items.NumberOfShares = items.NumberOfShares + numberOfShares;                        
-                        priceOfShare = items.PricePerShare * numberOfShares;
+                        this.priceOfShare = items.PricePerShare * numberOfShares;
                         stockName = items.Name;
                         stockFlag = false;
                     }
@@ -236,7 +248,7 @@ namespace OopsPrograms
                     ////this condition is used for 
                     if (item.Id == customerId)
                     {
-                        item.Valuation = item.Valuation + priceOfShare;
+                        item.Valuation = item.Valuation + this.priceOfShare;
                         customerName = item.Name;
                         amountValuation = item.Valuation;
                         customerFlag = false;
@@ -259,12 +271,13 @@ namespace OopsPrograms
                 CustomerName = customerName,
                 StockName = stockName,
                 NoOfShares = numberOfShares,
-                Amount = amountValuation,
+                Amount = this.priceOfShare * numberOfShares,
                 Time = DateTime.Now.ToString(),
                 TransactionType = TransactionType.Sell
             };
+
             IList<TransactionModel> transactionModels = Transaction.GetAllTransactions();
-            transactionModels.Add(transactionModel);
+            transactionModels.Add(transactionModel);            
             Constants constants = new Constants();
             ////writing the stock in to the file
             Transaction.WriteFile(constants.StockFile, stockModels);

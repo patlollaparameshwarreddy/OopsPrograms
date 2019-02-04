@@ -24,6 +24,7 @@ namespace OopsPrograms
                 int caseCondition;
                 ////this variable is used for checking the condition of do 
                 string doCondition = null;
+                DataProcessing dataProcessing = new DataProcessing();
                 do
                 {
                     Console.WriteLine("enter 1 for adding customer");
@@ -58,32 +59,18 @@ namespace OopsPrograms
                             transaction1.SellStock();
                             break;
                         case 5:
-                            ////this case is used for getting the all customer data
-                            CustomerData customerData1 = new CustomerData();
-                            IList<CustomerModel> values = customerData1.GetAllCustomer();
-                            foreach (var items in values)
-                            {
-                                Console.WriteLine(items.Id + "\t" + items.Name + "\t" + items.Valuation);
-                            }
+                            ////this case is used for getting the all customer data                           
+                            dataProcessing.CustomerData();
 
                             break;
                         case 6:
                             ////this case is used for getting all the records
-                            StockData stockData1 = new StockData();
-                            IList<StockDataModel> stock = stockData1.GetStock();
-                            foreach (var items in stock)
-                            {
-                                Console.WriteLine(items.Id + "\t" + items.Name + "\t" + items.NumberOfShares + "\t" + items.PricePerShare);
-                            }
+                            dataProcessing.StockData();
 
                             break;
                         case 7:
                             ////this case is used for getting all the Transactions
-                            IList<TransactionModel> valuess = Transaction.GetAllTransactions();
-                            foreach (var items in valuess)
-                            {
-                                Console.WriteLine(items.CustomerName + "\t" + items.StockName + "\t" + items.TransactionType + "\t" + items.NoOfShares + "\t" + items.Amount + "\t" + items.Time);
-                            }
+                            dataProcessing.TransactionData();
 
                             break;
                         case 8:

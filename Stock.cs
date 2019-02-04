@@ -29,7 +29,7 @@ namespace OopsPrograms
             ////this loop is used for printing the elements in a object
             foreach (var item in stockModels)
             {
-                Console.WriteLine(item.Id + "\t" + item.ShareName + "\t" + item.NumberOfShares + "\t" + item.PriceOfShare + "\t" + item.PriceOfShare * item.NumberOfShares);
+                Console.WriteLine(item.Id + "\t" + item.ShareName + "\t" + item.NumberOfShares + "\t" + item.PriceOfShare + "\t" + (item.PriceOfShare * item.NumberOfShares));
             }
         }
 

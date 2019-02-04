@@ -94,7 +94,7 @@ namespace OopsPrograms
         {
             try
             {
-                PrintAddressBook();
+                this.PrintAddressBook();
                 Console.WriteLine("enter your registered phone number to update");
                 string phoneNumber = Console.ReadLine();
                 Constants constants = new Constants();
@@ -272,6 +272,7 @@ namespace OopsPrograms
             ////writing into the file
             File.WriteAllText(constants.AddressBook, orderedByLastName);
             Console.WriteLine("ordered by last name");
+            this.PrintAddressBook();
         }
 
         /// <summary>
@@ -293,6 +294,7 @@ namespace OopsPrograms
             ////writing into the file
             File.WriteAllText(constants.AddressBook, orderedByLastName);
             Console.WriteLine("ordered by zip code");
+            this.PrintAddressBook();
         }
     }
 }

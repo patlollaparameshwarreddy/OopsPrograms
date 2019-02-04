@@ -32,6 +32,8 @@ namespace OopsPrograms
                     Console.WriteLine("enter 6 for stock data processing");
                     Console.WriteLine("enter 7 for address book");
                     Console.WriteLine("enter 8 for deck of cards in queue");
+                    Console.WriteLine("enter 9 for getting transaction in queue");
+                    Console.WriteLine("enter 10 for getting transaction in stack");
                     try
                     {
                         caseCondition = Convert.ToInt32(Console.ReadLine());
@@ -44,36 +46,54 @@ namespace OopsPrograms
                     switch (caseCondition)
                     {
                         case 1:
+                            ////creating object of inventory class
                             Inventory inventory = new Inventory();
                             inventory.PrintData();
                             break;
                         case 2:
+                            ////creating object of RegularExpression class
                             RegularExpression regularExpression = new RegularExpression();
                             regularExpression.ReplacingRegularExpressionWithString();
                             break;
                         case 3:
+                            ////creating object of Stock class
                             Stock stock = new Stock();
                             stock.CreateStock();
                             break;
                         case 4:
+                            ////creating object of InventoryManagement class
                             InventoryManagement inventoryManagement = new InventoryManagement();
                             inventoryManagement.Manage();
                             break;
                         case 5:
+                            ////creating object of DeckOfCards class
                             DeckOfCards deckOfCards = new DeckOfCards();
                             deckOfCards.Distribution();
                             break;
                         case 6:
+                            ////creating the object of DataProcessingMainClass class
                             DataProcessingMainClass dataProcessingMainClass = new DataProcessingMainClass();
                             dataProcessingMainClass.DataProcesssing();
                             break;
                         case 7:
+                            ////creating the object of AddressBook class
                             AddressBook addressBook = new AddressBook();
                             addressBook.AddressBookDetails();
                             break;
                         case 8:
+                            ////creating the object of CardQueue class
                             CardQueue cardQueue = new CardQueue();
                             cardQueue.CardInQueue();
+                            break;
+                        case 9:
+                            ////creating the object of TransactionsInQueue class
+                            TransactionsInQueue transaction = new TransactionsInQueue();
+                            transaction.TransactionInQueue();
+                            break;
+                        case 10:
+                            ////creating the object of TransactionStack class
+                            TransactionStack transactionStack  = new TransactionStack();
+                            transactionStack.StackTransaction();
                             break;
                     }
 
