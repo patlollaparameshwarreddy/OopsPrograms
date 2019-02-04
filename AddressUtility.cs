@@ -120,18 +120,7 @@ namespace OopsPrograms
                             switch (switchCase)
                             {
                                 case 1:
-                                    ////these case is used for changing the phone number
-                                    Console.WriteLine("enter new number");
-                                    string newPhoneNumber = Console.ReadLine();
-                                    if (Regex.IsMatch(phoneNumber, @"[0-9]{10}"))
-                                    {
-                                        items.PhoneNumber = newPhoneNumber;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("enter phone number correctly");
-                                    }
-
+                                    UpdatePhoneNumber(items);
                                     break;
                                 case 2:
                                     ////this case is used for changing the address
@@ -140,33 +129,11 @@ namespace OopsPrograms
                                     items.Address = Console.ReadLine();
                                     break;
                                 case 3:
-                                    ////this case is used for changing the state
-                                    Console.WriteLine("enter new state");
-                                    string newState = Console.ReadLine();
-                                    if (Regex.IsMatch(newState, @"[a-zA-Z]"))
-                                    {
-                                        items.PhoneNumber = newState;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("invalid data");
-                                    }
-
+                                    UpdateState(items);
                                     break;
 
                                 case 4:
-                                    ////this case is used for changing the city
-                                    Console.WriteLine("enter new city");
-                                    string newCity = Console.ReadLine();
-                                    if (Regex.IsMatch(newCity, @"[a-zA-Z]"))
-                                    {
-                                        items.PhoneNumber = newCity;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("invalid data");
-                                    }
-
+                                    UpdateCity(items);
                                     break;
                             }
 
@@ -295,6 +262,65 @@ namespace OopsPrograms
             File.WriteAllText(constants.AddressBook, orderedByLastName);
             Console.WriteLine("ordered by zip code");
             this.PrintAddressBook();
+        }
+
+        /// <summary>
+        /// Updates the phone number.
+        /// </summary>
+        /// <param name="phoneNumber">The phone number.</param>
+        /// <param name="items">The items.</param>
+        public void UpdatePhoneNumber(AddressBookModel items)
+        {
+            ////these case is used for changing the phone number
+            Console.WriteLine("enter new number");
+            string newPhoneNumber = Console.ReadLine();
+            if (Regex.IsMatch(newPhoneNumber, @"[0-9]{10}"))
+            {
+                items.PhoneNumber = newPhoneNumber;
+            }
+            else
+            {
+                Console.WriteLine("enter phone number correctly");
+            }
+        }
+
+        /// <summary>
+        /// Updates the state.
+        /// </summary>
+        /// <param name="state">The state.</param>
+        /// <param name="items">The items.</param>
+        public void UpdateState(AddressBookModel items)
+        {
+            ////this case is used for changing the state
+            Console.WriteLine("enter new state");
+            string newState = Console.ReadLine();
+            if (Regex.IsMatch(newState, @"[a-zA-Z]"))
+            {
+                items.State = newState;
+            }
+            else
+            {
+                Console.WriteLine("invalid data");
+            }
+        }
+
+        /// <summary>
+        /// Updates the city.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        public void UpdateCity(AddressBookModel items)
+        {
+            ////this case is used for changing the city
+            Console.WriteLine("enter new city");
+            string newCity = Console.ReadLine();
+            if (Regex.IsMatch(newCity, @"[a-zA-Z]"))
+            {
+                items.PhoneNumber = newCity;
+            }
+            else
+            {
+                Console.WriteLine("invalid data");
+            }
         }
     }
 }

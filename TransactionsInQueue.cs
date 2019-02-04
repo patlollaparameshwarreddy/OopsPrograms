@@ -18,7 +18,7 @@ namespace OopsPrograms
         /// <summary>
         /// Transactions the in queue.
         /// </summary>
-        public void TransactionInQueue()
+        public void TransactionInQueue() 
         {
             ////creating object of constant to access location of file
             Constants constants = new Constants();
